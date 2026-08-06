@@ -113,7 +113,7 @@ function Index() {
             </div>
             <div className="mt-6 p-6 rounded-3xl bg-white/5 border border-white/10">
               <h2 className="text-2xl font-black uppercase tracking-tight text-yellow-500 mb-2">
-                {LESSONS.find(l => l.id === activeVideoId)?.title}
+                {LESSONS.find(l => l.id === activeVideoId)?.title ?? "Clase Seleccionada"}
               </h2>
               <p className="text-white/40 text-sm italic">Reproduciendo ahora • Módulo de Formación Especializada</p>
             </div>
