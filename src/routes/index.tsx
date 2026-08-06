@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const LESSONS = [
+const LESSONS_MASONRY = [
   { title: "Cómo hacer un tabique de ladrillo hueco doble", id: "GweDsB4ZTl4" },
   { title: "Cómo hacer mortero de arena y cemento", id: "Td6XUz1V6uM" },
   { title: "Sistema de nivelación de azulejos", id: "GU4nWzghvnk" },
@@ -59,6 +59,36 @@ const LESSONS = [
   { title: "Colocación de rodapié paso a paso", id: "ZGdaTVQblOI" },
   { title: "Muro de carga de bloques de hormigón", id: "bUvP-uV1mBU" },
 ];
+
+const LESSONS_ELECTRICITY = [
+  { title: "Curso de Electricidad Básica DESDE CERO!! 👊 Teoría - Práctica", id: "BhgBXZdHWhU" },
+  { title: "MAGNITUDES ELÉCTRICAS | CLASE #1 CURSO DE ELECTRICIDAD COMPLETO", id: "BHBVlix0MXo" },
+  { title: "Cómo usar un Multímetro paso a paso | Clase 2 Curso de Electricidad Completo", id: "uysNOQlnKTA" },
+  { title: "Cómo usar un Multímetro para medir | Clase 3 Curso de Electricidad Completo", id: "aT0OFlPhyPc" },
+  { title: "Tipos de Potencia Eléctrica Explicación | CLASE #4 Curso de Electricidad Completo", id: "TfiL3JzdZ5c" },
+  { title: "Tipos de Tableros Eléctricos Domiciliarios Esquema | Clase 5 Curso de Electricidad Completo", id: "ArCuBq2xfO0" },
+  { title: "Cómo hacer CÁLCULO ELÉCTRICO de una CASA parte 1 | CLASE #6 Curso de Electricidad COMPLETO", id: "klGUhP5zxQU" },
+  { title: "Cómo Hacer la DISTRIBUCION ELÉCTRICA de una CASA | CLASE #7 Curso de Electricidad COMPLETO", id: "OYG7wcBSm_4" },
+  { title: "SECCIÓN de CABLES para Instalacion Domiciliaria | CLASE #8 Curso de Electricidad COMPLETO", id: "y5Mz7MAK6Qo" },
+  { title: "Cómo calcular la potencia térmica para mi casa | Clase 9 Curso de Electricidad Completo", id: "W16PXrqi4tE" },
+  { title: "Conexión de una LÁMPARA💡 con un INTERRUPTOR | CLASE #10 Curso de Electricidad COMPLETO", id: "EiVUIfuqiCI" },
+  { title: "Instalación de Lamparitas en Serie y Paralelo | CLASE #11 Curso de Electricidad Completo", id: "vaHmMqXijbM" },
+  { title: "Como se CONECTA un TOMACORRIENTE DOBLE | CLASE #12 (PARTE 1/2) Curso de Electricidad COMPLETO", id: "fIzSV7OU0Rc" },
+  { title: "Instalar TOMACORRIENTE Doble CON TIERRA | CLASE #12 (PARTE 2/2) Curso de Electricidad COMPLETO", id: "Uvgl-CxCNDo" },
+  { title: "Como Instalar una FOTOCÉLULA de 3 CABLES | CLASE #13 Curso de Electricidad COMPLETO", id: "XXGlu-YqpXM" },
+  { title: "Cómo instalar Llaves de Luz Combinadas | Clase 14 Curso de Electricidad Completo", id: "1fwBecHPRAc" },
+  { title: "¿Qué es la Puesta a Tierra de una Casa y para qué Sirve?", id: "s8uJRIRiJuc" },
+  { title: "DIFERENCIA ENTRE NEUTRO Y TIERRA | Puesta a tierra de servicio", id: "LsKQu_vTvks" },
+  { title: "✏ Cómo Hacer y Leer un Esquema Unifilar | Paso a Paso", id: "FCrFAkA9yqM" },
+  { title: "🔑¿Qué es la Caída de Tensión? | Explicado Claramente", id: "EewXoc6isXg" },
+  { title: "👌Cómo identificar FASE, NEUTRO y TIERRA con un \"Multímetro\"", id: "XlmNNgubwbw" },
+  { title: "Cómo conectar un Dimmer para luces LED | Súper fácil", id: "dz26mLmr8Nk" },
+  { title: "🧉 Mi PAVA eléctrica NO ENCIENDE | REPARADO (Todas las POSIBLES CAUSAS)", id: "_zpi7qkIcAY" },
+  { title: "Jabalina de Puesta a Tierra - Cómo Instalarlas y/o Reemplazarlas", id: "fdfvHyONjUc" },
+  { title: "La térmica no salta ❌ FUGA A TIERRA | Resuelto Paso a Paso ✅", id: "EBToZEeSseg" },
+];
+
+const LESSONS = [...LESSONS_MASONRY, ...LESSONS_ELECTRICITY];
 
 const PLAYLIST_ID = "PLMGVyzSXl-it0TkbTAtoVVDKUvHYdRa4r";
 
