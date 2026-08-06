@@ -179,10 +179,13 @@ function Index() {
           </div>
 
           {/* Playlist Sidebar */}
-          <div className="h-[600px] overflow-y-auto pr-2 custom-scrollbar bg-white/5 rounded-3xl border border-white/10 p-4">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-white/40 mb-6 flex items-center gap-2 px-2">
-              <Play size={12} className="text-yellow-500" /> Programa Completo
-            </h3>
+          <div className="h-[600px] overflow-y-auto pr-2 custom-scrollbar bg-white/5 rounded-3xl border border-white/10 p-6">
+            <div className="mb-8">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mb-2 flex items-center gap-2">
+                CONTENIDO DEL CURSO
+              </h3>
+              <p className="text-sm font-bold text-white uppercase tracking-tight">Todas las {LESSONS.length} Videoaulas</p>
+            </div>
             <div className="space-y-2">
               {LESSONS.map((lesson, index) => (
                 <button
