@@ -196,54 +196,83 @@ function Index() {
           </div>
 
           {/* Playlist Sidebar */}
-          <div className="h-[600px] overflow-y-auto pr-2 custom-scrollbar bg-white/5 rounded-3xl border border-white/10 p-6">
-            <div className="mb-8">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mb-2 flex items-center gap-2">
+          <div className="h-[700px] flex flex-col bg-white/5 rounded-3xl border border-white/10 overflow-hidden">
+            <div className="p-6 border-b border-white/10">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mb-2">
                 CONTENIDO DEL CURSO
               </h3>
-              <p className="text-sm font-bold text-white uppercase tracking-tight">Todas las {LESSONS.length} Videoaulas</p>
+              <p className="text-sm font-bold text-white uppercase tracking-tight">Todas las Videoaulas</p>
             </div>
-            <div className="space-y-2">
-              {LESSONS.map((lesson, index) => (
-                <button
-                  key={lesson.id}
-                  id={lesson.id === activeVideoId ? "active-lesson" : undefined}
-                  onClick={() => setActiveVideoId(lesson.id)}
-                  className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 group ${
-                    activeVideoId === lesson.id 
-                      ? "bg-yellow-500 border-yellow-500 text-black shadow-lg shadow-yellow-500/20" 
-                      : "bg-transparent border-transparent hover:bg-white/5 text-white/60 hover:text-white"
-                  }`}
-                >
-                  <div className="flex gap-4">
-                    <span className={`text-[10px] font-black uppercase tracking-widest mt-1 ${
-                      activeVideoId === lesson.id ? "text-black/50" : "text-white/20"
-                    }`}>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <h4 className="text-sm font-bold leading-snug line-clamp-2">
-                      {lesson.title}
-                    </h4>
-                  </div>
-                </button>
-              ))}
+            
+            <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar p-6 space-y-8">
+              {/* Masonry Section */}
+              <section>
+                <div className="flex items-center gap-2 mb-4 px-2">
+                  <Construction size={14} className="text-yellow-500" />
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-yellow-500">Módulo de Albañilería</h4>
+                </div>
+                <div className="space-y-2">
+                  {LESSONS_MASONRY.map((lesson, index) => (
+                    <button
+                      key={lesson.id}
+                      onClick={() => setActiveVideoId(lesson.id)}
+                      className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 group ${
+                        activeVideoId === lesson.id 
+                          ? "bg-yellow-500 border-yellow-500 text-black shadow-lg shadow-yellow-500/20" 
+                          : "bg-transparent border-transparent hover:bg-white/5 text-white/60 hover:text-white"
+                      }`}
+                    >
+                      <div className="flex gap-4">
+                        <span className={`text-[10px] font-black uppercase tracking-widest mt-1 ${
+                          activeVideoId === lesson.id ? "text-black/50" : "text-white/20"
+                        }`}>
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <h4 className="text-sm font-bold leading-snug line-clamp-2">
+                          {lesson.title}
+                        </h4>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </section>
+
+              {/* Electricity Section */}
+              <section>
+                <div className="flex items-center gap-2 mb-4 px-2 pt-4 border-t border-white/5">
+                  <Play size={14} className="text-yellow-500" />
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-yellow-500">Módulo de Electricidad</h4>
+                </div>
+                <div className="space-y-2">
+                  {LESSONS_ELECTRICITY.map((lesson, index) => (
+                    <button
+                      key={lesson.id}
+                      onClick={() => setActiveVideoId(lesson.id)}
+                      className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 group ${
+                        activeVideoId === lesson.id 
+                          ? "bg-yellow-500 border-yellow-500 text-black shadow-lg shadow-yellow-500/20" 
+                          : "bg-transparent border-transparent hover:bg-white/5 text-white/60 hover:text-white"
+                      }`}
+                    >
+                      <div className="flex gap-4">
+                        <span className={`text-[10px] font-black uppercase tracking-widest mt-1 ${
+                          activeVideoId === lesson.id ? "text-black/50" : "text-white/20"
+                        }`}>
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <h4 className="text-sm font-bold leading-snug line-clamp-2">
+                          {lesson.title}
+                        </h4>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </section>
             </div>
           </div>
         </div>
 
-        {/* Action Bar */}
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-3xl bg-gradient-to-r from-yellow-500/10 to-transparent border border-yellow-500/20">
-          <div>
-            <h3 className="text-xl font-bold uppercase tracking-tight">Acceso a la Lista Completa</h3>
-            <p className="text-white/40 text-sm">¿Prefieres ver todo en YouTube? Aquí tienes el enlace directo.</p>
-          </div>
-          <button 
-            onClick={() => window.open(`https://www.youtube.com/playlist?list=${PLAYLIST_ID}`, '_blank')}
-            className="flex items-center gap-2 px-8 py-4 bg-yellow-500 text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all transform hover:scale-105"
-          >
-            Abrir Playlist <ExternalLink size={14} />
-          </button>
-        </div>
+        {/* Removed Action Bar (YouTube Link) */}
       </main>
 
       {/* Simplified Footer */}
