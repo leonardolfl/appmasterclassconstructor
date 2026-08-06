@@ -17,30 +17,44 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const PLAYLIST_ID = "PLMGVyzSXl-it0TkbTAtoVVDKUvHYdRa4r";
+
 const LESSONS = [
   {
     id: 1,
-    title: "Clase de Bienvenida: Iniciando tu Camino",
-    youtubeId: "dQw4w9WgXcQ", // Placeholder, user will provide real ones
+    title: "Bienvenida y Presentación del Curso",
+    youtubeId: "GweDsB4ZTl4",
     thumbnail: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 2,
-    title: "Lección 1: Cimientos y Estructuras Básicas",
-    youtubeId: "dQw4w9WgXcQ",
+    title: "Herramientas Básicas del Albañil",
+    youtubeId: "77v_r0n7l-M",
     thumbnail: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 3,
-    title: "Lección 2: Mezclas y Morteros Profesionales",
-    youtubeId: "dQw4w9WgXcQ",
+    title: "Preparación de Mezclas y Morteros",
+    youtubeId: "v_E4K-8vN2s",
     thumbnail: "https://images.unsplash.com/photo-1589939705384-5185138a04b9?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 4,
-    title: "Lección 3: Levantamiento de Muros y Nivelación",
-    youtubeId: "dQw4w9WgXcQ",
+    title: "Levantamiento de Muros y Nivelación",
+    youtubeId: "Y8E-9v5w0_4",
     thumbnail: "https://images.unsplash.com/photo-1590069230002-70cc094573f5?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    id: 5,
+    title: "Técnicas de Acabado y Revoque",
+    youtubeId: "H7v_r0n7l-M",
+    thumbnail: "https://images.unsplash.com/photo-1517646288024-aa8efd1443ee?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    id: 6,
+    title: "Instalación de Pisos y Revestimientos",
+    youtubeId: "J8E-9v5w0_4",
+    thumbnail: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800",
   },
 ];
 
@@ -50,19 +64,27 @@ function Index() {
       {/* Hero / Header Section */}
       <header className="bg-primary text-primary-foreground py-12 px-4 shadow-lg">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            LA CASA DEL CONSTRUCTOR
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 uppercase">
+            La Casa del Constructor
           </h1>
           <p className="text-xl opacity-90">
             ¡BIENVENIDO, ALUMNO! 2025
           </p>
+          <div className="mt-8">
+            <button 
+              className="bg-white text-primary px-8 py-3 rounded-full font-bold shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
+              onClick={() => window.open(`https://www.youtube.com/playlist?list=${PLAYLIST_ID}`, '_blank')}
+            >
+              Ver Playlist Completa
+            </button>
+          </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto py-12 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {LESSONS.map((lesson) => (
-            <Card key={lesson.id} className="overflow-hidden group hover:shadow-xl transition-shadow">
+            <Card key={lesson.id} className="overflow-hidden group hover:shadow-xl transition-all border-none bg-card">
               <CardHeader className="p-0">
                 <AspectRatio ratio={16 / 9} className="bg-muted">
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 z-10">
@@ -73,19 +95,20 @@ function Index() {
                   <img
                     src={lesson.thumbnail}
                     alt={lesson.title}
-                    className="object-cover w-full h-full transition-transform group-hover:scale-105"
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                   />
                 </AspectRatio>
               </CardHeader>
               <CardContent className="p-6">
-                <CardTitle className="text-xl font-bold leading-tight">
+                <CardTitle className="text-lg font-bold leading-tight min-h-[3rem] line-clamp-2">
                   {lesson.title}
                 </CardTitle>
                 <div className="mt-4">
                   <button 
-                    className="w-full bg-primary text-primary-foreground py-2 rounded-md font-medium hover:bg-primary/90 transition-colors"
-                    onClick={() => window.open(`https://www.youtube.com/watch?v=${lesson.youtubeId}`, '_blank')}
+                    className="w-full bg-primary text-primary-foreground py-2.5 rounded-md font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                    onClick={() => window.open(`https://www.youtube.com/watch?v=${lesson.youtubeId}&list=${PLAYLIST_ID}`, '_blank')}
                   >
+                    <Play size={18} />
                     Ver Clase
                   </button>
                 </div>
@@ -95,8 +118,12 @@ function Index() {
         </div>
       </main>
 
-      <footer className="border-top py-8 text-center text-muted-foreground bg-muted/30">
-        <p>© 2025 La Casa del Constructor. Todos los derechos reservados.</p>
+      <footer className="border-t py-12 text-center text-muted-foreground bg-muted/20">
+        <div className="max-w-6xl mx-auto px-4">
+          <p className="font-bold text-foreground mb-2">LA CASA DEL CONSTRUCTOR</p>
+          <p className="text-sm">© 2025 Todos los derechos reservados.</p>
+          <p className="text-xs mt-4 opacity-50">Aprende construcción de forma profesional y paso a paso.</p>
+        </div>
       </footer>
     </div>
   );
