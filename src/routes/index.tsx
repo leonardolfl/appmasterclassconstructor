@@ -105,14 +105,34 @@ function Index() {
 
       {/* Main Experience Section */}
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 leading-none">
-            Masterclass <span className="text-yellow-500">Elite</span>
+        {/* Course Header/Welcome - Reference Style */}
+        <div className="flex flex-col items-center text-center mb-16 space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-[10px] font-black uppercase tracking-widest">
+            🧱 CURSO COMPLETO • {LESSONS.length} CLASES
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
+            BIENVENIDO, <span className="text-yellow-500">ALUMNO</span>
           </h1>
-          <p className="text-white/60 max-w-2xl text-lg leading-relaxed">
-            Domina el arte de la construcción con nuestro programa de formación profesional. 
-            Utiliza los controles para navegar entre las lecciones.
+          
+          <p className="text-white/40 max-w-2xl text-base md:text-lg leading-relaxed font-medium">
+            Desde la cimentación hasta los acabados: aprende la base de la casa, muros, colocación de ladrillos, 
+            revoques, escuadrado y mucho más con clases prácticas. Toca cualquier clase para comenzar.
           </p>
+
+          {/* Progress Section */}
+          <div className="w-full max-w-2xl mt-8 p-8 rounded-3xl bg-white/5 border border-white/10 text-left">
+            <div className="flex justify-between items-end mb-4">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">TU PROGRESO</span>
+              <span className="text-3xl font-black tracking-tighter text-yellow-500 leading-none">0%</span>
+            </div>
+            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-full w-[2%] bg-yellow-500 rounded-full" />
+            </div>
+            <div className="mt-4 text-[10px] font-bold uppercase tracking-widest text-white/20">
+              0 de {LESSONS.length} clases concluidas
+            </div>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
