@@ -4,9 +4,9 @@ import { Construction, Play, ExternalLink } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "La Casa del Constructor | Masterclass Elite 2025" },
+      { title: "La Casa del Constructor | Masterclass Elite" },
       { name: "description", content: "Aprende el arte de la construcción con los mejores. Una experiencia premium de aprendizaje para futuros maestros." },
-      { property: "og:title", content: "La Casa del Constructor | Masterclass Elite 2025" },
+      { property: "og:title", content: "La Casa del Constructor | Masterclass Elite" },
       { property: "og:description", content: "Aprende el arte de la construcción con los mejores. Una experiencia premium de aprendizaje para futuros maestros." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -67,6 +67,22 @@ import { useState } from "react";
 function Index() {
   const [activeVideoId, setActiveVideoId] = useState(LESSONS[0]?.id || "");
 
+  const activeIndex = LESSONS.findIndex(l => l.id === activeVideoId);
+  
+  const goToNext = () => {
+    const nextLesson = LESSONS[activeIndex + 1];
+    if (nextLesson) {
+      setActiveVideoId(nextLesson.id);
+    }
+  };
+
+  const goToPrev = () => {
+    const prevLesson = LESSONS[activeIndex - 1];
+    if (prevLesson) {
+      setActiveVideoId(prevLesson.id);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-yellow-500 selection:text-black">
       {/* Premium Header */}
@@ -91,17 +107,17 @@ function Index() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 leading-none">
-            Masterclass <span className="text-yellow-500">Elite 2025</span>
+            Masterclass <span className="text-yellow-500">Elite</span>
           </h1>
           <p className="text-white/60 max-w-2xl text-lg leading-relaxed">
             Domina el arte de la construcción con nuestro programa de formación profesional. 
-            Selecciona una clase a continuación para comenzar tu aprendizaje.
+            Utiliza los controles para navegar entre las lecciones.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Video Player */}
-          <div className="lg:col-span-2">
+          {/* Main Video Player Container */}
+          <div className="lg:col-span-2 space-y-6">
             <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-[#111]">
               <iframe
                 src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1`}
@@ -111,32 +127,56 @@ function Index() {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className="mt-6 p-6 rounded-3xl bg-white/5 border border-white/10">
-              <h2 className="text-2xl font-black uppercase tracking-tight text-yellow-500 mb-2">
-                {LESSONS.find(l => l.id === activeVideoId)?.title ?? "Clase Seleccionada"}
-              </h2>
-              <p className="text-white/40 text-sm italic">Reproduciendo ahora • Módulo de Formación Especializada</p>
+            
+            {/* Playback Controls */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-3xl bg-white/5 border border-white/10">
+              <div className="flex-1">
+                <h2 className="text-2xl font-black uppercase tracking-tight text-yellow-500 mb-1">
+                  {LESSONS[activeIndex]?.title ?? "Clase Seleccionada"}
+                </h2>
+                <p className="text-white/40 text-xs uppercase tracking-widest font-bold">
+                  Lección {activeIndex + 1} de {LESSONS.length}
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <button 
+                  onClick={goToPrev}
+                  disabled={activeIndex === 0}
+                  className="px-6 py-3 rounded-xl bg-white/10 border border-white/10 text-xs font-black uppercase tracking-widest hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                >
+                  Anterior
+                </button>
+                <button 
+                  onClick={goToNext}
+                  disabled={activeIndex === LESSONS.length - 1}
+                  className="px-6 py-3 rounded-xl bg-yellow-500 text-black text-xs font-black uppercase tracking-widest hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                >
+                  Siguiente
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Playlist Sidebar */}
-          <div className="h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-white/40 mb-6 flex items-center gap-2">
+          <div className="h-[600px] overflow-y-auto pr-2 custom-scrollbar bg-white/5 rounded-3xl border border-white/10 p-4">
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-white/40 mb-6 flex items-center gap-2 px-2">
               <Play size={12} className="text-yellow-500" /> Programa Completo
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {LESSONS.map((lesson, index) => (
                 <button
                   key={lesson.id}
+                  id={lesson.id === activeVideoId ? "active-lesson" : undefined}
                   onClick={() => setActiveVideoId(lesson.id)}
                   className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 group ${
                     activeVideoId === lesson.id 
-                      ? "bg-yellow-500 border-yellow-500 text-black" 
-                      : "bg-white/5 border-white/10 hover:bg-white/10 text-white"
+                      ? "bg-yellow-500 border-yellow-500 text-black shadow-lg shadow-yellow-500/20" 
+                      : "bg-transparent border-transparent hover:bg-white/5 text-white/60 hover:text-white"
                   }`}
                 >
                   <div className="flex gap-4">
-                    <span className={`text-[10px] font-black uppercase tracking-widest ${
+                    <span className={`text-[10px] font-black uppercase tracking-widest mt-1 ${
                       activeVideoId === lesson.id ? "text-black/50" : "text-white/20"
                     }`}>
                       {String(index + 1).padStart(2, '0')}
@@ -176,7 +216,7 @@ function Index() {
             <span className="font-black tracking-tighter text-sm italic uppercase">Casa Del Constructor</span>
           </div>
           <p className="text-[10px] text-white/20 uppercase tracking-[0.2em] font-bold">
-            © 2025 Todos los derechos reservados • Formación de Élite
+            © Todos los derechos reservados • Formación de Élite
           </p>
         </div>
       </footer>
