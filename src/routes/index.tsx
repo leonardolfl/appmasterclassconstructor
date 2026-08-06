@@ -70,14 +70,16 @@ function Index() {
   const activeIndex = LESSONS.findIndex(l => l.id === activeVideoId);
   
   const goToNext = () => {
-    if (activeIndex !== -1 && activeIndex < LESSONS.length - 1) {
-      setActiveVideoId(LESSONS[activeIndex + 1].id);
+    const nextLesson = LESSONS[activeIndex + 1];
+    if (nextLesson) {
+      setActiveVideoId(nextLesson.id);
     }
   };
 
   const goToPrev = () => {
-    if (activeIndex > 0) {
-      setActiveVideoId(LESSONS[activeIndex - 1].id);
+    const prevLesson = LESSONS[activeIndex - 1];
+    if (prevLesson) {
+      setActiveVideoId(prevLesson.id);
     }
   };
 
