@@ -65,7 +65,7 @@ const PLAYLIST_ID = "PLMGVyzSXl-it0TkbTAtoVVDKUvHYdRa4r";
 import { useState } from "react";
 
 function Index() {
-  const [activeVideoId, setActiveVideoId] = useState(LESSONS[0].id);
+  const [activeVideoId, setActiveVideoId] = useState(LESSONS[0]?.id || "");
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-yellow-500 selection:text-black">
