@@ -120,19 +120,6 @@ function Index() {
             revoques, escuadrado y mucho más con clases prácticas. Toca cualquier clase para comenzar.
           </p>
 
-          {/* Progress Section */}
-          <div className="w-full max-w-2xl mt-8 p-8 rounded-3xl bg-white/5 border border-white/10 text-left">
-            <div className="flex justify-between items-end mb-4">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">TU PROGRESO</span>
-              <span className="text-3xl font-black tracking-tighter text-yellow-500 leading-none">0%</span>
-            </div>
-            <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-              <div className="h-full w-[2%] bg-yellow-500 rounded-full" />
-            </div>
-            <div className="mt-4 text-[10px] font-bold uppercase tracking-widest text-white/20">
-              0 de {LESSONS.length} clases concluidas
-            </div>
-          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
