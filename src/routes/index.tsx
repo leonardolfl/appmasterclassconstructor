@@ -322,7 +322,35 @@ function Index() {
                 </h2>
                 <p className="text-white/40 text-xs uppercase tracking-widest font-bold">
                   Lección {activeIndex + 1} de {LESSONS.length}
-                </p>
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-8">
+            <Link to="/albanileria" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yellow-500 transition-all text-center">
+              <Construction className="w-8 h-8 mx-auto mb-3 text-yellow-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Albañilería</span>
+            </Link>
+            <Link to="/eletricidad" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500 transition-all text-center">
+              <Zap className="w-8 h-8 mx-auto mb-3 text-blue-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Electricidad</span>
+            </Link>
+            <Link to="/fontaneria" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500 transition-all text-center">
+              <Droplets className="w-8 h-8 mx-auto mb-3 text-cyan-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Fontanería</span>
+            </Link>
+            <Link to="/porcelanato" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500 transition-all text-center">
+              <Layout className="w-8 h-8 mx-auto mb-3 text-purple-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Porcelanato</span>
+            </Link>
+          </div>
+
+          <div className="pt-8">
+            <Link 
+              to="/acesso"
+              className="px-12 py-5 rounded-2xl bg-yellow-500 text-black font-black uppercase tracking-[0.2em] text-xs hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-yellow-500/20"
+            >
+              Panel de Cursos
+            </Link>
+          </div>
               </div>
               
               <div className="flex items-center gap-3">
