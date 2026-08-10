@@ -89,7 +89,6 @@ function Porcelanato() {
             </div>
             <span className="font-black tracking-tighter text-xl italic uppercase">Casa Del Constructor</span>
           </div>
-        </div>
           <div className="hidden md:flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
             <span className="flex items-center gap-1.5 text-yellow-500">
               <span className="h-1.5 w-1.5 rounded-full bg-yellow-500 animate-pulse" />
