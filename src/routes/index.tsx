@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Construction, Play, ExternalLink, Droplets } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Construction, Play, ExternalLink, Droplets, Zap, Layout } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
