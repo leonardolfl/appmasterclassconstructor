@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Construction, Zap, Droplets, Layout, ChevronRight } from "lucide-react";
 
-export const Route = createFileRoute("/acesso")({
+export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Acceso a Cursos | La Casa del Constructor" },
