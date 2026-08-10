@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Construction, Play, Droplets } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Construction, Play, Droplets, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/albanileria")({
@@ -61,6 +61,10 @@ function Albanileria() {
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-yellow-500 selection:text-black">
       <nav className="border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <Link to="/acesso" className="flex items-center gap-2 group text-white/60 hover:text-white transition-colors">
+            <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+            <span className="text-xs font-black uppercase tracking-widest">Volver</span>
+          </Link>
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-yellow-500 flex items-center justify-center rounded-lg">
               <Construction className="text-black w-6 h-6" />
