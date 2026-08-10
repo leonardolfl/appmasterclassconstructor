@@ -417,6 +417,38 @@ function Index() {
                   ))}
                 </div>
               </section>
+
+              {/* Plumbing Section */}
+              <section>
+                <div className="flex items-center gap-2 mb-4 px-2 pt-4 border-t border-white/5">
+                  <Droplets size={14} className="text-yellow-500" />
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-yellow-500">Módulo de Fontanería</h4>
+                </div>
+                <div className="space-y-2">
+                  {LESSONS_PLUMBING.map((lesson, index) => (
+                    <button
+                      key={lesson.id}
+                      onClick={() => setActiveVideoId(lesson.id)}
+                      className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 group ${
+                        activeVideoId === lesson.id 
+                          ? "bg-yellow-500 border-yellow-500 text-black shadow-lg shadow-yellow-500/20" 
+                          : "bg-transparent border-transparent hover:bg-white/5 text-white/60 hover:text-white"
+                      }`}
+                    >
+                      <div className="flex gap-4">
+                        <span className={`text-[10px] font-black uppercase tracking-widest mt-1 ${
+                          activeVideoId === lesson.id ? "text-black/50" : "text-white/20"
+                        }`}>
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <h4 className="text-sm font-bold leading-snug line-clamp-2">
+                          {lesson.title}
+                        </h4>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </section>
             </div>
           </div>
         </div>
