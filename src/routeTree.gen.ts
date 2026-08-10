@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlbanileriaRouteImport } from './routes/albanileria'
 import { Route as PorcelanatoRouteImport } from './routes/porcelanato'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlbanileriaRoute = AlbanileriaRouteImport.update({
+  id: '/albanileria',
+  path: '/albanileria',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PorcelanatoRoute = PorcelanatoRouteImport.update({
@@ -25,27 +31,31 @@ const PorcelanatoRoute = PorcelanatoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/albanileria': typeof AlbanileriaRoute
   '/porcelanato': typeof PorcelanatoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/albanileria': typeof AlbanileriaRoute
   '/porcelanato': typeof PorcelanatoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/albanileria': typeof AlbanileriaRoute
   '/porcelanato': typeof PorcelanatoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/porcelanato'
+  fullPaths: '/' | '/albanileria' | '/porcelanato'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/porcelanato'
-  id: '__root__' | '/' | '/porcelanato'
+  to: '/' | '/albanileria' | '/porcelanato'
+  id: '__root__' | '/' | '/albanileria' | '/porcelanato'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlbanileriaRoute: typeof AlbanileriaRoute
   PorcelanatoRoute: typeof PorcelanatoRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/albanileria': {
+      id: '/albanileria'
+      path: '/albanileria'
+      fullPath: '/albanileria'
+      preLoaderRoute: typeof AlbanileriaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/porcelanato': {
@@ -70,8 +87,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlbanileriaRoute: AlbanileriaRoute,
   PorcelanatoRoute: PorcelanatoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
