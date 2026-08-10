@@ -270,7 +270,25 @@ function Index() {
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-yellow-500 flex items-center justify-center rounded-lg">
               <Construction className="text-black w-6 h-6" />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full max-w-4xl mt-8">
+            <a href="/albanileria" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
+              <Construction className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-black uppercase tracking-widest">Albañilería</span>
+            </a>
+            <a href="/eletricidad" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
+              <Play className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-black uppercase tracking-widest">Electricidad</span>
+            </a>
+            <a href="/fontaneria" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
+              <Droplets className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-black uppercase tracking-widest">Fontanería</span>
+            </a>
+            <a href="/porcelanato" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
+              <Play className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-black uppercase tracking-widest">Porcelanato</span>
+            </a>
+          </div>
+        </div>
             <span className="font-black tracking-tighter text-xl italic uppercase">Casa Del Constructor</span>
           </div>
           <div className="hidden md:flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
