@@ -10,8 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AcessoRouteImport } from './routes/acesso'
 import { Route as AlbanileriaRouteImport } from './routes/albanileria'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as EletricidadRouteImport } from './routes/eletricidad'
 import { Route as FontaneriaRouteImport } from './routes/fontaneria'
 import { Route as PorcelanatoRouteImport } from './routes/porcelanato'
@@ -21,14 +21,14 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AcessoRoute = AcessoRouteImport.update({
-  id: '/acesso',
-  path: '/acesso',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AlbanileriaRoute = AlbanileriaRouteImport.update({
   id: '/albanileria',
   path: '/albanileria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EletricidadRoute = EletricidadRouteImport.update({
@@ -49,16 +49,16 @@ const PorcelanatoRoute = PorcelanatoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/acesso': typeof AcessoRoute
   '/albanileria': typeof AlbanileriaRoute
+  '/dashboard': typeof DashboardRoute
   '/eletricidad': typeof EletricidadRoute
   '/fontaneria': typeof FontaneriaRoute
   '/porcelanato': typeof PorcelanatoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/acesso': typeof AcessoRoute
   '/albanileria': typeof AlbanileriaRoute
+  '/dashboard': typeof DashboardRoute
   '/eletricidad': typeof EletricidadRoute
   '/fontaneria': typeof FontaneriaRoute
   '/porcelanato': typeof PorcelanatoRoute
@@ -66,8 +66,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/acesso': typeof AcessoRoute
   '/albanileria': typeof AlbanileriaRoute
+  '/dashboard': typeof DashboardRoute
   '/eletricidad': typeof EletricidadRoute
   '/fontaneria': typeof FontaneriaRoute
   '/porcelanato': typeof PorcelanatoRoute
@@ -76,24 +76,24 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/acesso'
     | '/albanileria'
+    | '/dashboard'
     | '/eletricidad'
     | '/fontaneria'
     | '/porcelanato'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/acesso'
     | '/albanileria'
+    | '/dashboard'
     | '/eletricidad'
     | '/fontaneria'
     | '/porcelanato'
   id:
     | '__root__'
     | '/'
-    | '/acesso'
     | '/albanileria'
+    | '/dashboard'
     | '/eletricidad'
     | '/fontaneria'
     | '/porcelanato'
@@ -101,8 +101,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AcessoRoute: typeof AcessoRoute
   AlbanileriaRoute: typeof AlbanileriaRoute
+  DashboardRoute: typeof DashboardRoute
   EletricidadRoute: typeof EletricidadRoute
   FontaneriaRoute: typeof FontaneriaRoute
   PorcelanatoRoute: typeof PorcelanatoRoute
@@ -117,18 +117,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/acesso': {
-      id: '/acesso'
-      path: '/acesso'
-      fullPath: '/acesso'
-      preLoaderRoute: typeof AcessoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/albanileria': {
       id: '/albanileria'
       path: '/albanileria'
       fullPath: '/albanileria'
       preLoaderRoute: typeof AlbanileriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/eletricidad': {
@@ -157,8 +157,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AcessoRoute: AcessoRoute,
   AlbanileriaRoute: AlbanileriaRoute,
+  DashboardRoute: DashboardRoute,
   EletricidadRoute: EletricidadRoute,
   FontaneriaRoute: FontaneriaRoute,
   PorcelanatoRoute: PorcelanatoRoute,
