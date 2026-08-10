@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Construction, Play, ExternalLink, Droplets } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Construction, Play, ExternalLink, Droplets, Zap, Layout } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -270,25 +270,7 @@ function Index() {
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-yellow-500 flex items-center justify-center rounded-lg">
               <Construction className="text-black w-6 h-6" />
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full max-w-4xl mt-8">
-            <a href="/albanileria" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
-              <Construction className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-black uppercase tracking-widest">Albañilería</span>
-            </a>
-            <a href="/eletricidad" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
-              <Play className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-black uppercase tracking-widest">Electricidad</span>
-            </a>
-            <a href="/fontaneria" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
-              <Droplets className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-black uppercase tracking-widest">Fontanería</span>
-            </a>
-            <a href="/porcelanato" className="flex flex-col items-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500 hover:text-black transition-all group">
-              <Play className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-black uppercase tracking-widest">Porcelanato</span>
-            </a>
-          </div>
-        </div>
+            </div>
             <span className="font-black tracking-tighter text-xl italic uppercase">Casa Del Constructor</span>
           </div>
           <div className="hidden md:flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
@@ -340,7 +322,35 @@ function Index() {
                 </h2>
                 <p className="text-white/40 text-xs uppercase tracking-widest font-bold">
                   Lección {activeIndex + 1} de {LESSONS.length}
-                </p>
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-8">
+            <Link to="/albanileria" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yellow-500 transition-all text-center">
+              <Construction className="w-8 h-8 mx-auto mb-3 text-yellow-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Albañilería</span>
+            </Link>
+            <Link to="/eletricidad" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500 transition-all text-center">
+              <Zap className="w-8 h-8 mx-auto mb-3 text-blue-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Electricidad</span>
+            </Link>
+            <Link to="/fontaneria" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500 transition-all text-center">
+              <Droplets className="w-8 h-8 mx-auto mb-3 text-cyan-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Fontanería</span>
+            </Link>
+            <Link to="/porcelanato" className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500 transition-all text-center">
+              <Layout className="w-8 h-8 mx-auto mb-3 text-purple-500 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-widest block text-white/60 group-hover:text-white">Porcelanato</span>
+            </Link>
+          </div>
+
+          <div className="pt-8">
+            <Link 
+              to="/acesso"
+              className="px-12 py-5 rounded-2xl bg-yellow-500 text-black font-black uppercase tracking-[0.2em] text-xs hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-yellow-500/20"
+            >
+              Panel de Cursos
+            </Link>
+          </div>
               </div>
               
               <div className="flex items-center gap-3">
