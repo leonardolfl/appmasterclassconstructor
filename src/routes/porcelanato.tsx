@@ -79,7 +79,7 @@ function Porcelanato() {
       {/* Premium Header */}
       <nav className="border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link to="/acesso" className="flex items-center gap-2 group text-white/60 hover:text-white transition-colors">
+          <Link to="/" className="flex items-center gap-2 group text-white/60 hover:text-white transition-colors">
             <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
             <span className="text-xs font-black uppercase tracking-widest">Volver</span>
           </Link>
