@@ -72,13 +72,13 @@ function Acesso() {
       <main className="max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-3xl mb-16 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-[10px] font-black uppercase tracking-widest">
-            🎓 PANEL DE ESTUDIANTE
+            👋 ¡BIENVENIDO DE NUEVO!
           </div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
-            ELIGE TU <span className="text-yellow-500">ESPECIALIDAD</span>
+            SELECCIONA EL <span className="text-yellow-500">CURSO</span> QUE QUIERES VER
           </h1>
-          <p className="text-white/40 text-lg md:text-xl leading-relaxed font-medium">
-            Bienvenido de nuevo. Selecciona el módulo que deseas estudiar hoy y continúa tu camino hacia la maestría en construcción.
+          <p className="text-white/60 text-lg md:text-xl leading-relaxed font-medium">
+            Tu camino hacia la excelencia profesional continúa aquí. Elige una de nuestras especialidades y comienza tu entrenamiento ahora.
           </p>
         </div>
 
@@ -87,29 +87,38 @@ function Acesso() {
             <Link
               key={course.path}
               to={course.path}
-              className={`group relative flex flex-col p-8 rounded-3xl bg-gradient-to-br ${course.color} border ${course.border} ${course.hover} transition-all duration-500 overflow-hidden`}
+              className={`group relative flex flex-col p-8 rounded-[2rem] bg-zinc-900/50 border border-white/5 hover:bg-zinc-900 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-yellow-500/5`}
             >
-              <div className="relative z-10">
-                <div className={`w-14 h-14 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 ${course.accent}`}>
-                  <course.icon size={28} />
+              {/* Card Glow Effect */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className={`w-16 h-16 rounded-2xl bg-black/40 border border-white/5 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-black/60 transition-all duration-500 ${course.accent} shadow-inner`}>
+                  <course.icon size={32} strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-2xl font-black uppercase tracking-tight mb-3">
+                <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 group-hover:text-white transition-colors">
                   {course.title}
                 </h3>
                 
-                <p className="text-white/50 text-sm leading-relaxed mb-8 font-medium">
+                <p className="text-white/40 text-base leading-snug mb-10 font-medium group-hover:text-white/70 transition-colors">
                   {course.description}
                 </p>
 
-                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest group-hover:gap-4 transition-all duration-300">
-                  Acceder curso <ChevronRight size={14} className={course.accent} />
+                <div className="mt-auto flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-yellow-500 transition-colors">
+                    Empezar ahora <ChevronRight size={16} />
+                  </div>
+                  
+                  <div className={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0`}>
+                    <ChevronRight size={18} />
+                  </div>
                 </div>
               </div>
 
-              {/* Decorative Background Element */}
-              <div className="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                <course.icon size={120} />
+              {/* Decorative Background Icon */}
+              <div className="absolute -right-6 -top-6 opacity-[0.03] group-hover:opacity-[0.08] group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                <course.icon size={200} strokeWidth={1} />
               </div>
             </Link>
           ))}
