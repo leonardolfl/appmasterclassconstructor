@@ -10,11 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlbanileriaRouteImport } from './routes/albanileria'
+import { Route as EletricidadRouteImport } from './routes/eletricidad'
+import { Route as FontaneriaRouteImport } from './routes/fontaneria'
 import { Route as PorcelanatoRouteImport } from './routes/porcelanato'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlbanileriaRoute = AlbanileriaRouteImport.update({
+  id: '/albanileria',
+  path: '/albanileria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EletricidadRoute = EletricidadRouteImport.update({
+  id: '/eletricidad',
+  path: '/eletricidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FontaneriaRoute = FontaneriaRouteImport.update({
+  id: '/fontaneria',
+  path: '/fontaneria',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PorcelanatoRoute = PorcelanatoRouteImport.update({
@@ -25,27 +43,46 @@ const PorcelanatoRoute = PorcelanatoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/albanileria': typeof AlbanileriaRoute
+  '/eletricidad': typeof EletricidadRoute
+  '/fontaneria': typeof FontaneriaRoute
   '/porcelanato': typeof PorcelanatoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/albanileria': typeof AlbanileriaRoute
+  '/eletricidad': typeof EletricidadRoute
+  '/fontaneria': typeof FontaneriaRoute
   '/porcelanato': typeof PorcelanatoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/albanileria': typeof AlbanileriaRoute
+  '/eletricidad': typeof EletricidadRoute
+  '/fontaneria': typeof FontaneriaRoute
   '/porcelanato': typeof PorcelanatoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/porcelanato'
+  fullPaths:
+    '/' | '/albanileria' | '/eletricidad' | '/fontaneria' | '/porcelanato'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/porcelanato'
-  id: '__root__' | '/' | '/porcelanato'
+  to: '/' | '/albanileria' | '/eletricidad' | '/fontaneria' | '/porcelanato'
+  id:
+    | '__root__'
+    | '/'
+    | '/albanileria'
+    | '/eletricidad'
+    | '/fontaneria'
+    | '/porcelanato'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlbanileriaRoute: typeof AlbanileriaRoute
+  EletricidadRoute: typeof EletricidadRoute
+  FontaneriaRoute: typeof FontaneriaRoute
   PorcelanatoRoute: typeof PorcelanatoRoute
 }
 
@@ -56,6 +93,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/albanileria': {
+      id: '/albanileria'
+      path: '/albanileria'
+      fullPath: '/albanileria'
+      preLoaderRoute: typeof AlbanileriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eletricidad': {
+      id: '/eletricidad'
+      path: '/eletricidad'
+      fullPath: '/eletricidad'
+      preLoaderRoute: typeof EletricidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fontaneria': {
+      id: '/fontaneria'
+      path: '/fontaneria'
+      fullPath: '/fontaneria'
+      preLoaderRoute: typeof FontaneriaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/porcelanato': {
@@ -70,6 +128,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlbanileriaRoute: AlbanileriaRoute,
+  EletricidadRoute: EletricidadRoute,
+  FontaneriaRoute: FontaneriaRoute,
   PorcelanatoRoute: PorcelanatoRoute,
 }
 export const routeTree = rootRouteImport
